@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "./script.sh dev",
-    "test": "./script.sh test"
+    "test": "./script.sh test",
+    "start": "./script.sh start"
   },
   "keywords": [],
   "author": "",
