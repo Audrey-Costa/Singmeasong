@@ -1,12 +1,11 @@
 {
   "name": "typescript-back-template",
   "version": "1.0.0",
-  "type": "module",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/server.ts",
-    "test": "dotenv -e .env.test jest  -- -i --coverage"
+    "dev": "./script.sh dev",
+    "test": "./script.sh test"
   },
   "keywords": [],
   "author": "",
