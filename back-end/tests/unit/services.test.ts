@@ -1,5 +1,5 @@
-import { jest } from "@jest/globals"
-import { recommendationRepository } from "../../src/repositories/recommendationRepository"
+import { jest } from "@jest/globals";
+import { recommendationRepository } from "../../src/repositories/recommendationRepository";
 import { recommendationService } from "../../src/services/recommendationsService";
 
 describe("Test insert function", ()=>{
@@ -95,3 +95,57 @@ describe("Test the function getById", ()=>{
         expect(promise).toBe(recommendation);
     })
 })
+
+describe("Test the function getRandom", ()=>{
+    it("Test the call of recommendationRepository function getByScore when don't have recommendations", async ()=>{
+        jest.spyOn(recommendationRepository, "findAll").mockResolvedValue([]);
+        const promise = recommendationService.getRandom();
+
+        expect(promise).rejects.toEqual({"message": "", "type": "not_found"});
+    });
+
+    it("Test the call of recommendationRepository function getByscore when all the recommendations are bellow or above score 10", async ()=>{
+        const recommendation = {
+            id: 3,
+            name: "Billie Eilish - ilomilo (Audio)",
+            youtubeLink: "https://www.youtube.com/watch?v=-e7wiyNO2us&list=RDEMcce0hP5SVByOVCd8UWUHEA&index=3",
+            score: 210
+        };
+        jest.spyOn(recommendationRepository, "findAll").mockResolvedValueOnce([]);
+        jest.spyOn(recommendationRepository, "findAll").mockResolvedValueOnce([recommendation]);
+        const promise = await recommendationService.getRandom();
+
+        expect(promise).toBe(recommendation);
+    });
+
+    it("Test the call of recommendationRepository function getByscore return a score above 10 in 70% of time", async ()=>{
+        const recommendation = {
+            id: 3,
+            name: "Billie Eilish - ilomilo (Audio)",
+            youtubeLink: "https://www.youtube.com/watch?v=-e7wiyNO2us&list=RDEMcce0hP5SVByOVCd8UWUHEA&index=3",
+            score: 210
+        };
+        
+        jest.spyOn(Math, "random").mockReturnValue(0.4);
+        jest.spyOn(recommendationRepository, "findAll").mockResolvedValue([recommendation]);
+        const promise = await recommendationService.getRandom();
+
+        expect(promise).toBe(recommendation);
+
+    });
+
+    it("Test the call of recommendationRepository function getByscore return a score bellow 10 in 30% of time", async ()=>{
+        const recommendation = {
+            id:1,
+            name: "Eminem - Stan (Long Version) ft. Dido",
+            youtubeLink: "https://www.youtube.com/watch?v=gOMhN-hfMtY",
+            score: 3
+        };
+
+        jest.spyOn(Math, "random").mockReturnValueOnce(0.8);
+        jest.spyOn(recommendationRepository, "findAll").mockResolvedValueOnce([recommendation]);
+        const promise = await recommendationService.getRandom();
+
+        expect(promise).toBe(recommendation);
+    });
+});
