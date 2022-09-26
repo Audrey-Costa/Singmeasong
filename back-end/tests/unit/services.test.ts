@@ -36,5 +36,22 @@ describe("Test insert function", ()=>{
         expect(promise).rejects.toEqual({"message": "Recommendations names must be unique", "type": "conflict"});
         expect(recommendationRepository.findByName).toBeCalled();
     });
-
 });
+
+describe("Test upvote function", ()=>{
+    it("Test the upvote for valid id", async ()=>{
+        const recommendation = {
+            id: 1,
+            name: "Billie Eilish - my future",
+            youtubeLink: "https://www.youtube.com/watch?v=Dm9Zf1WYQ_A&list=RDEMcce0hP5SVByOVCd8UWUHEA&index=3",
+            score: 210
+        }
+
+        jest.spyOn(recommendationRepository, "find").mockImplementationOnce((): any=>{return recommendation});
+        jest.spyOn(recommendationRepository, "updateScore").mockImplementationOnce((): any=>{});
+        await recommendationService.upvote(recommendation.id);
+
+        expect(recommendationRepository.find).toBeCalled();
+        expect(recommendationRepository.updateScore).toBeCalled();
+    })
+})
