@@ -53,5 +53,20 @@ describe("Test upvote function", ()=>{
 
         expect(recommendationRepository.find).toBeCalled();
         expect(recommendationRepository.updateScore).toBeCalled();
-    })
+    });
+
+    it("Test the upvote for invalid id", async ()=>{
+        const recommendation = {
+            id: 3,
+            name: "Billie Eilish - ilomilo (Audio)",
+            youtubeLink: "https://www.youtube.com/watch?v=-e7wiyNO2us&list=RDEMcce0hP5SVByOVCd8UWUHEA&index=3",
+            score: 210
+        }
+
+        jest.spyOn(recommendationRepository, "find").mockImplementationOnce((): any=>{return null});
+        jest.spyOn(recommendationRepository, "updateScore").mockImplementationOnce((): any=>{});
+        const promise = recommendationService.upvote(recommendation.id);
+
+        expect(promise).rejects.toEqual({"message": "", "type": "not_found"});
+    });
 })
