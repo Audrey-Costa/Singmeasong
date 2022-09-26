@@ -6,8 +6,8 @@ beforeEach(async ()=>{
     await prisma.$executeRaw`TRUNCATE TABLE recommendations`;
 });
 
-describe("Test the route Post /", ()=>{
-    it("return status code 201 if it's a new recomenndation created", async ()=>{
+describe("Test the route Post /recommendations/", ()=>{
+    it("Return status code 201 if it's a new recomenndation created", async ()=>{
         const recommendation = {
             name: "Billie Eilish - ilomilo (Audio)",
             youtubeLink: "https://www.youtube.com/watch?v=-e7wiyNO2us&list=RDEMcce0hP5SVByOVCd8UWUHEA&index=3"
@@ -39,9 +39,17 @@ describe("Test the route Post /", ()=>{
         const result = await supertest(app).post("/recommendations/").send(recommendation);
 
         expect(result.status).toBe(422);
-    })
+    });
 });
 
+describe("Test the route /recommendations/", ()=>{
+    it("Return status code 200 and an response with the recommendations", async ()=>{
+        const result = await supertest(app).get("/recommendations/");
+        
+        expect(result.status).toBe(200);
+        expect(result.body).toBeInstanceOf(Array);
+    })
+})
 
 afterAll(async () => {
     await prisma.$disconnect();

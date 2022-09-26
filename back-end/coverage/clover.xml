@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1664210427862" clover="3.2.0">
-  <project timestamp="1664210427862" name="All files">
-    <metrics statements="120" coveredstatements="88" conditionals="29" coveredconditionals="18" methods="31" coveredmethods="17" elements="180" coveredelements="123" complexity="0" loc="120" ncloc="120" packages="8" files="9" classes="9"/>
+<coverage generated="1664211345942" clover="3.2.0">
+  <project timestamp="1664211345942" name="All files">
+    <metrics statements="120" coveredstatements="93" conditionals="29" coveredconditionals="19" methods="31" coveredmethods="20" elements="180" coveredelements="132" complexity="0" loc="120" ncloc="120" packages="8" files="9" classes="9"/>
     <package name="src">
       <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="app.ts" path="/home/audrey/Documentos/DEV/projeto21-singmeasong/back-end/src/app.ts">
@@ -26,9 +26,9 @@
       </file>
     </package>
     <package name="src.controllers">
-      <metrics statements="25" coveredstatements="9" conditionals="1" coveredconditionals="1" methods="7" coveredmethods="1"/>
+      <metrics statements="25" coveredstatements="11" conditionals="1" coveredconditionals="1" methods="7" coveredmethods="2"/>
       <file name="recommendationController.ts" path="/home/audrey/Documentos/DEV/projeto21-singmeasong/back-end/src/controllers/recommendationController.ts">
-        <metrics statements="25" coveredstatements="9" conditionals="1" coveredconditionals="1" methods="7" coveredmethods="1"/>
+        <metrics statements="25" coveredstatements="11" conditionals="1" coveredconditionals="1" methods="7" coveredmethods="2"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
@@ -45,8 +45,8 @@
         <line num="30" count="0" type="stmt"/>
         <line num="34" count="0" type="stmt"/>
         <line num="36" count="0" type="stmt"/>
-        <line num="40" count="0" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
         <line num="45" count="0" type="stmt"/>
         <line num="47" count="0" type="stmt"/>
         <line num="48" count="0" type="stmt"/>
@@ -69,15 +69,15 @@
       </file>
     </package>
     <package name="src.repositories">
-      <metrics statements="13" coveredstatements="4" conditionals="1" coveredconditionals="0" methods="8" coveredmethods="2"/>
+      <metrics statements="13" coveredstatements="7" conditionals="1" coveredconditionals="1" methods="8" coveredmethods="4"/>
       <file name="recommendationRepository.ts" path="/home/audrey/Documentos/DEV/projeto21-singmeasong/back-end/src/repositories/recommendationRepository.ts">
-        <metrics statements="13" coveredstatements="4" conditionals="1" coveredconditionals="0" methods="8" coveredmethods="2"/>
+        <metrics statements="13" coveredstatements="7" conditionals="1" coveredconditionals="1" methods="8" coveredmethods="4"/>
         <line num="2" count="2" type="stmt"/>
         <line num="6" count="2" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
         <line num="27" count="0" type="stmt"/>
-        <line num="36" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="36" count="1" type="cond" truecount="1" falsecount="0"/>
         <line num="38" count="0" type="stmt"/>
         <line num="40" count="0" type="stmt"/>
         <line num="46" count="0" type="stmt"/>
@@ -132,7 +132,7 @@
         <line num="37" count="3" type="stmt"/>
         <line num="38" count="3" type="cond" truecount="1" falsecount="0"/>
         <line num="40" count="2" type="stmt"/>
-        <line num="44" count="1" type="stmt"/>
+        <line num="44" count="2" type="stmt"/>
         <line num="48" count="1" type="stmt"/>
         <line num="52" count="4" type="stmt"/>
         <line num="53" count="4" type="stmt"/>
@@ -146,8 +146,8 @@
         <line num="71" count="2" type="stmt"/>
         <line num="74" count="2" type="stmt"/>
         <line num="78" count="4" type="cond" truecount="1" falsecount="0"/>
-        <line num="79" count="2" type="stmt"/>
-        <line num="82" count="2" type="stmt"/>
+        <line num="79" count="3" type="stmt"/>
+        <line num="82" count="1" type="stmt"/>
         <line num="85" count="2" type="stmt"/>
       </file>
     </package>
