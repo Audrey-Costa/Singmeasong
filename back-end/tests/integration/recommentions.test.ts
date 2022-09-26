@@ -70,7 +70,44 @@ describe("Test the route /recommendations/random", ()=>{
 
         expect(result.status).toBe(404);
     });
-})
+});
+
+describe("Test the route /recommendations/top/:amount", ()=>{
+    it("Return status 200 and response with the given number of recommendations", async ()=>{
+        const recommendations = [{
+            name: "Eminem - Stan (Long Version) ft. Dido",
+            youtubeLink: "https://www.youtube.com/watch?v=gOMhN-hfMtY",
+        }, {
+            name: "ilomilo (Audio)",
+            youtubeLink: "https://www.youtube.com/watch?v=-e7wiyNO2us&list=RDEMcce0hP5SVByOVCd8UWUHEA&index=3",
+        }, {
+            name: "Billie Eilish - NDA", 
+            youtubeLink: "https://www.youtube.com/watch?v=Dm9Zf1WQ_A&list=RDEMcce0hP5SVByOVCd8UWUHEA&index=3",
+        }, { 
+            name: "Billie Eilish - Bury a Friend", 
+            youtubeLink: "https://www.youtube.com/watch?v=DmZf1WYQ_A&list=RDEMcce0hP5SVByOVCd8UWUHEA&index=3",
+        } ,{
+            name: "Billie Eilish - Your Power", 
+            youtubeLink: "https://www.youtube.com/watch?v=Dm9ZfWYQ_A&list=RDEMcce0hP5SVByOVCd8UWUHEA&index=3",
+        }, {
+            name: "Billie Eilish - Everything I Wanted", 
+            youtubeLink: "https://www.youtube.com/watch?v=Dm9Zf1WYQ_A&list=RDEMcce0hP5SVByOVd8UWUHEA&index=3",
+        }, {
+            name: "Billie Eilish - Oceans Eyes", 
+            youtubeLink: "https://www.youtube.com/watch?v=Dm9Zf1WYQ_A&list=RDEMcce0h5SVByOVCd8UWUHEA&index=3",
+        }];
+        const amount = 4;
+        
+        for(let i = 0; i < recommendations.length; i++){
+            await prisma.recommendation.create({data: recommendations[i]});
+        }
+        
+        const result = await supertest(app).get(`/recommendations/top/${amount}`);
+        
+        expect(result.status).toBe(200);
+        expect(result.body.length).toEqual(amount);
+    });
+});
 
 afterAll(async () => {
     await prisma.$disconnect();
