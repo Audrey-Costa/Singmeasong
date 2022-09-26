@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1664217172071" clover="3.2.0">
-  <project timestamp="1664217172071" name="All files">
-    <metrics statements="120" coveredstatements="105" conditionals="29" coveredconditionals="20" methods="31" coveredmethods="25" elements="180" coveredelements="150" complexity="0" loc="120" ncloc="120" packages="8" files="9" classes="9"/>
+<coverage generated="1664218385120" clover="3.2.0">
+  <project timestamp="1664218385120" name="All files">
+    <metrics statements="120" coveredstatements="109" conditionals="29" coveredconditionals="20" methods="31" coveredmethods="27" elements="180" coveredelements="156" complexity="0" loc="120" ncloc="120" packages="8" files="9" classes="9"/>
     <package name="src">
       <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="app.ts" path="/home/audrey/Documentos/DEV/projeto21-singmeasong/back-end/src/app.ts">
@@ -26,20 +26,20 @@
       </file>
     </package>
     <package name="src.controllers">
-      <metrics statements="25" coveredstatements="19" conditionals="1" coveredconditionals="1" methods="7" coveredmethods="5"/>
+      <metrics statements="25" coveredstatements="22" conditionals="1" coveredconditionals="1" methods="7" coveredmethods="6"/>
       <file name="recommendationController.ts" path="/home/audrey/Documentos/DEV/projeto21-singmeasong/back-end/src/controllers/recommendationController.ts">
-        <metrics statements="25" coveredstatements="19" conditionals="1" coveredconditionals="1" methods="7" coveredmethods="5"/>
+        <metrics statements="25" coveredstatements="22" conditionals="1" coveredconditionals="1" methods="7" coveredmethods="6"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
-        <line num="7" count="5" type="stmt"/>
-        <line num="8" count="5" type="cond" truecount="1" falsecount="0"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="8" count="4" type="cond" truecount="1" falsecount="0"/>
         <line num="9" count="1" type="stmt"/>
-        <line num="12" count="4" type="stmt"/>
-        <line num="14" count="3" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
         <line num="26" count="0" type="stmt"/>
         <line num="28" count="0" type="stmt"/>
         <line num="30" count="0" type="stmt"/>
@@ -62,27 +62,27 @@
         <metrics statements="6" coveredstatements="5" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="2" count="1" type="stmt"/>
         <line num="8" count="1" type="stmt"/>
-        <line num="14" count="4" type="stmt"/>
-        <line num="16" count="4" type="cond" truecount="1" falsecount="0"/>
-        <line num="17" count="4" type="stmt"/>
+        <line num="14" count="5" type="stmt"/>
+        <line num="16" count="5" type="cond" truecount="1" falsecount="0"/>
+        <line num="17" count="5" type="stmt"/>
         <line num="20" count="0" type="stmt"/>
       </file>
     </package>
     <package name="src.repositories">
-      <metrics statements="13" coveredstatements="11" conditionals="1" coveredconditionals="1" methods="8" coveredmethods="6"/>
+      <metrics statements="13" coveredstatements="12" conditionals="1" coveredconditionals="1" methods="8" coveredmethods="7"/>
       <file name="recommendationRepository.ts" path="/home/audrey/Documentos/DEV/projeto21-singmeasong/back-end/src/repositories/recommendationRepository.ts">
-        <metrics statements="13" coveredstatements="11" conditionals="1" coveredconditionals="1" methods="8" coveredmethods="6"/>
+        <metrics statements="13" coveredstatements="12" conditionals="1" coveredconditionals="1" methods="8" coveredmethods="7"/>
         <line num="2" count="2" type="stmt"/>
-        <line num="6" count="3" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
         <line num="17" count="5" type="stmt"/>
         <line num="19" count="5" type="stmt"/>
         <line num="27" count="1" type="stmt"/>
         <line num="36" count="5" type="cond" truecount="1" falsecount="0"/>
         <line num="38" count="2" type="stmt"/>
         <line num="40" count="2" type="stmt"/>
-        <line num="46" count="2" type="stmt"/>
-        <line num="52" count="4" type="stmt"/>
-        <line num="58" count="0" type="stmt"/>
+        <line num="46" count="4" type="stmt"/>
+        <line num="52" count="3" type="stmt"/>
+        <line num="58" count="1" type="stmt"/>
         <line num="67" count="0" type="stmt"/>
         <line num="72" count="2" type="stmt"/>
       </file>
@@ -119,19 +119,19 @@
         <metrics statements="32" coveredstatements="28" conditionals="6" coveredconditionals="5" methods="9" coveredmethods="8"/>
         <line num="2" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
-        <line num="8" count="6" type="stmt"/>
-        <line num="11" count="6" type="cond" truecount="1" falsecount="0"/>
+        <line num="8" count="5" type="stmt"/>
+        <line num="11" count="5" type="cond" truecount="1" falsecount="0"/>
         <line num="12" count="2" type="stmt"/>
-        <line num="14" count="4" type="stmt"/>
-        <line num="18" count="2" type="stmt"/>
-        <line num="20" count="1" type="stmt"/>
+        <line num="14" count="3" type="stmt"/>
+        <line num="18" count="4" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
         <line num="24" count="0" type="stmt"/>
         <line num="26" count="0" type="stmt"/>
         <line num="31" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="32" count="0" type="stmt"/>
-        <line num="37" count="5" type="stmt"/>
-        <line num="38" count="5" type="cond" truecount="1" falsecount="0"/>
-        <line num="40" count="3" type="stmt"/>
+        <line num="37" count="7" type="stmt"/>
+        <line num="38" count="7" type="cond" truecount="1" falsecount="0"/>
+        <line num="40" count="4" type="stmt"/>
         <line num="44" count="2" type="stmt"/>
         <line num="48" count="2" type="stmt"/>
         <line num="52" count="6" type="stmt"/>
@@ -156,17 +156,17 @@
       <file name="errorUtils.ts" path="/home/audrey/Documentos/DEV/projeto21-singmeasong/back-end/src/utils/errorUtils.ts">
         <metrics statements="16" coveredstatements="14" conditionals="20" coveredconditionals="12" methods="6" coveredmethods="5"/>
         <line num="7" count="2" type="stmt"/>
-        <line num="8" count="4" type="stmt"/>
+        <line num="8" count="5" type="stmt"/>
         <line num="11" count="2" type="stmt"/>
-        <line num="12" count="4" type="cond" truecount="1" falsecount="0"/>
-        <line num="13" count="3" type="cond" truecount="1" falsecount="0"/>
+        <line num="12" count="5" type="cond" truecount="1" falsecount="0"/>
+        <line num="13" count="4" type="cond" truecount="1" falsecount="0"/>
         <line num="14" count="1" type="cond" truecount="0" falsecount="1"/>
         <line num="15" count="1" type="cond" truecount="1" falsecount="0"/>
         <line num="16" count="0" type="stmt"/>
         <line num="19" count="2" type="stmt"/>
         <line num="20" count="2" type="cond" truecount="3" falsecount="1"/>
         <line num="23" count="2" type="stmt"/>
-        <line num="24" count="4" type="cond" truecount="3" falsecount="1"/>
+        <line num="24" count="5" type="cond" truecount="3" falsecount="1"/>
         <line num="27" count="2" type="stmt"/>
         <line num="28" count="0" type="cond" truecount="0" falsecount="4"/>
         <line num="31" count="2" type="stmt"/>
