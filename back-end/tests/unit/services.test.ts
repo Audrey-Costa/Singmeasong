@@ -29,7 +29,9 @@ describe("Test insert function", ()=>{
                 name: "Billie Eilish - my future", 
                 youtubeLink: "https://www.youtube.com/watch?v=Dm9Zf1WYQ_A&list=RDEMcce0hP5SVByOVCd8UWUHEA&index=3",
                 score: 453
-            }});
+            }
+        });
+        
         jest.spyOn(recommendationRepository, "create").mockImplementationOnce((): any=>{});
         const promise = recommendationService.insert(recommendation);
 
@@ -147,5 +149,53 @@ describe("Test the function getRandom", ()=>{
         const promise = await recommendationService.getRandom();
 
         expect(promise).toBe(recommendation);
+    });
+});
+
+describe("Test the function getTop", ()=>{
+    it("Test if the call of recommendationRepository function getTop return the recommendations ordered by highscore", async ()=>{
+        const recommendations = [{
+            id:1,
+            name: "Eminem - Stan (Long Version) ft. Dido",
+            youtubeLink: "https://www.youtube.com/watch?v=gOMhN-hfMtY",
+            score: 3
+        }, {
+            id: 3,
+            name: "Billie Eilish - ilomilo (Audio)",
+            youtubeLink: "https://www.youtube.com/watch?v=-e7wiyNO2us&list=RDEMcce0hP5SVByOVCd8UWUHEA&index=3",
+            score: 210
+        }, {
+            id:1, 
+            name: "Billie Eilish - my future", 
+            youtubeLink: "https://www.youtube.com/watch?v=Dm9Zf1WYQ_A&list=RDEMcce0hP5SVByOVCd8UWUHEA&index=3",
+            score: 453
+        }, {
+            id:1, 
+            name: "Billie Eilish - my future", 
+            youtubeLink: "https://www.youtube.com/watch?v=Dm9Zf1WYQ_A&list=RDEMcce0hP5SVByOVCd8UWUHEA&index=3",
+            score: 14
+        } ,{
+            id:1, 
+            name: "Billie Eilish - my future", 
+            youtubeLink: "https://www.youtube.com/watch?v=Dm9Zf1WYQ_A&list=RDEMcce0hP5SVByOVCd8UWUHEA&index=3",
+            score: 42
+        }, {
+            id:1, 
+            name: "Billie Eilish - my future", 
+            youtubeLink: "https://www.youtube.com/watch?v=Dm9Zf1WYQ_A&list=RDEMcce0hP5SVByOVCd8UWUHEA&index=3",
+            score: 54
+        }, {
+            id:1, 
+            name: "Billie Eilish - my future", 
+            youtubeLink: "https://www.youtube.com/watch?v=Dm9Zf1WYQ_A&list=RDEMcce0hP5SVByOVCd8UWUHEA&index=3",
+            score: 453
+        }];
+        const amount = 4;
+
+        jest.spyOn(recommendationRepository, "getAmountByScore").mockResolvedValueOnce([recommendations[1], recommendations[2], recommendations[5], recommendations[6]]);
+        const promise = await recommendationService.getTop(amount);
+
+        expect(promise).toBeInstanceOf(Array);
+        expect(promise.length).toBe(amount);
     });
 });

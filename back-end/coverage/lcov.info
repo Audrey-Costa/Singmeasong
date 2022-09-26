@@ -61,13 +61,13 @@ FN:51,getRandom
 FN:64,getByScore
 FN:77,getScoreFilter
 FNF:9
-FNH:7
+FNH:8
 FNDA:2,insert
 FNDA:2,upvote
 FNDA:0,downvote
 FNDA:3,getByIdOrFail
 FNDA:1,get
-FNDA:0,getTop
+FNDA:1,getTop
 FNDA:4,getRandom
 FNDA:4,getByScore
 FNDA:4,getScoreFilter
@@ -87,7 +87,7 @@ DA:37,3
 DA:38,3
 DA:40,2
 DA:44,1
-DA:48,0
+DA:48,1
 DA:52,4
 DA:53,4
 DA:55,4
@@ -104,7 +104,7 @@ DA:79,1
 DA:82,3
 DA:85,1
 LF:32
-LH:27
+LH:28
 BRDA:11,0,0,1
 BRDA:31,1,0,0
 BRDA:38,2,0,1
