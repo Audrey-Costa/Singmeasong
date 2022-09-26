@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/server.ts",
-    "test": "dotenv -e .env.test jest --coverage -- -i "
+    "test": "dotenv -e .env.test jest  -- -i --coverage"
   },
   "keywords": [],
   "author": "",

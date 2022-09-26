@@ -21,7 +21,7 @@ describe("Test insert function", ()=>{
         const recommendation = {
             name: "Billie Eilish - my future",
             youtubeLink: "https://www.youtube.com/watch?v=Dm9Zf1WYQ_A&list=RDEMcce0hP5SVByOVCd8UWUHEA&index=3"
-        }
+        };
         
         jest.spyOn(recommendationRepository, "findByName").mockImplementationOnce((): any=>{
             return {
@@ -45,7 +45,7 @@ describe("Test upvote function", ()=>{
             name: "Billie Eilish - my future",
             youtubeLink: "https://www.youtube.com/watch?v=Dm9Zf1WYQ_A&list=RDEMcce0hP5SVByOVCd8UWUHEA&index=3",
             score: 210
-        }
+        };
 
         jest.spyOn(recommendationRepository, "find").mockImplementationOnce((): any=>{return recommendation});
         jest.spyOn(recommendationRepository, "updateScore").mockImplementationOnce((): any=>{});
@@ -61,7 +61,7 @@ describe("Test upvote function", ()=>{
             name: "Billie Eilish - ilomilo (Audio)",
             youtubeLink: "https://www.youtube.com/watch?v=-e7wiyNO2us&list=RDEMcce0hP5SVByOVCd8UWUHEA&index=3",
             score: 210
-        }
+        };
 
         jest.spyOn(recommendationRepository, "find").mockImplementationOnce((): any=>{return null});
         jest.spyOn(recommendationRepository, "updateScore").mockImplementationOnce((): any=>{});
@@ -69,4 +69,13 @@ describe("Test upvote function", ()=>{
 
         expect(promise).rejects.toEqual({"message": "", "type": "not_found"});
     });
-})
+});
+
+describe("Test the function get", ()=>{
+    it("Test the call of recommendationRepository function findAll", async ()=>{
+        jest.spyOn(recommendationRepository, "findAll").mockImplementationOnce((): any=>{});
+        await recommendationService.get();
+
+        expect(recommendationRepository.findAll).toBeCalled();
+    });
+});
