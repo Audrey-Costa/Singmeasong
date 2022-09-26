@@ -48,7 +48,28 @@ describe("Test the route /recommendations/", ()=>{
         
         expect(result.status).toBe(200);
         expect(result.body).toBeInstanceOf(Array);
-    })
+    });
+});
+
+describe("Test the route /recommendations/random", ()=>{
+    it("Return status code 200 and an response with the recommendations", async ()=>{
+        const recommendation = {
+            name: "Billie Eilish - ilomilo (Audio)",
+            youtubeLink: "https://www.youtube.com/watch?v=-e7wiyNO2us&list=RDEMcce0hP5SVByOVCd8UWUHEA&index=3"
+        };
+        await supertest(app).post("/recommendations/").send(recommendation);
+
+        const result = await supertest(app).get("/recommendations/random");
+
+        expect(result.status).toBe(200);
+        expect(result.body).toBeInstanceOf(Object);
+    });
+
+    it("Return status code 404 when none recommendations is found", async ()=>{
+        const result = await supertest(app).get("/recommendations/random");
+
+        expect(result.status).toBe(404);
+    });
 })
 
 afterAll(async () => {
