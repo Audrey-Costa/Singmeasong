@@ -146,7 +146,7 @@ describe("Test the route GET /recommendatons/:id", ()=>{
     });
 
     it("Return status 404", async()=>{
-        const id = 3;
+        const id = -1;
         
         const result = await supertest(app).get(`/recommendations/${id}`);
 
@@ -172,12 +172,37 @@ describe("Test the route POST /recommendations/:id/upvote", ()=>{
     });
 
     it("Return 404 when recommendation not found", async ()=>{
-        const id = 1;
+        const id = -1;
 
         const result = await supertest(app).post(`/recommendations/${id}/upvote`).send();
 
         expect(result.status).toBe(404);
-    })
+    });
+});
+
+describe("Test the route POST /recommendations/:id/downvote", ()=>{
+    it("Update the recommendation score and response status code 200", async ()=>{
+        const recommendation = {
+            name: "Billie Eilish - ilomilo (Audio)",
+            youtubeLink: "https://www.youtube.com/watch?v=-e7wiyNO2us&list=RDEMcce0hP5SVByOVCd8UWUHEA&index=3"
+        };
+        await prisma.recommendation.create({data: recommendation});
+        const recomenndationBefore = await prisma.recommendation.findFirst({where: {name: recommendation.name}});
+
+        const result = await supertest(app).post(`/recommendations/${recomenndationBefore.id}/downvote`).send();
+        const recomenndationAfter = await prisma.recommendation.findFirst({where: {name: recommendation.name}});
+
+        expect(result.status).toBe(200);
+        expect(recomenndationAfter.score).toBe(recomenndationBefore.score - 1);
+    });
+
+    it("Return 404 when recommendation not found", async ()=>{
+        const id = -1;
+
+        const result = await supertest(app).post(`/recommendations/${id}/downvote`).send();
+
+        expect(result.status).toBe(404);
+    });
 });
 
 afterAll(async () => {
