@@ -3,7 +3,7 @@ import { recommendationRepository } from "../../src/repositories/recommendationR
 import { recommendationService } from "../../src/services/recommendationsService";
 
 describe("Test insert function", ()=>{
-    it("Test the insertion of a new recommendatiion", async ()=>{
+    it("Test the insertion of a new recommendation", async ()=>{
         const recommendation = {
             name: "Billie Eilish - TV (Live from the Cloud Forest, Singapore)",
             youtubeLink: "https://www.youtube.com/watch?v=UQphbBmXI-E&list=RDEMcce0hP5SVByOVCd8UWUHEA&index=6"
@@ -79,3 +79,19 @@ describe("Test the function get", ()=>{
         expect(recommendationRepository.findAll).toBeCalled();
     });
 });
+
+describe("Test the function getById", ()=>{
+    it("Test the call of recommendationRepository function find", async ()=>{
+        const recommendation = {
+            id: 3,
+            name: "Billie Eilish - ilomilo (Audio)",
+            youtubeLink: "https://www.youtube.com/watch?v=-e7wiyNO2us&list=RDEMcce0hP5SVByOVCd8UWUHEA&index=3",
+            score: 210
+        };
+
+        jest.spyOn(recommendationRepository, "find").mockImplementationOnce((): any=>{return recommendation});
+        const promise = await recommendationService.getById(recommendation.id);
+
+        expect(promise).toBe(recommendation);
+    })
+})
